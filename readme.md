@@ -74,7 +74,7 @@ Setelah menyelesaikan course ini, saya bisa:
 
 ## 📝 Notes
 
-Repository ini adalah catatan pribadi pembelajaran saya. Semua code dan studi kasus dikerjakan sendiri mengikuti course material.
+Repository ini adalah catatan pribadi pembelajaran saya. Semua code dan studi kasus dikerjakan sendiri mengikuti course material. ~ sibeux/nasrul wahabi
 
 ---
 
