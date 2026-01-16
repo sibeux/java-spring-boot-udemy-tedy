@@ -7,6 +7,7 @@ Repository ini berisi semua materi dan project yang saya kerjakan selama belajar
 ## 📚 Materi yang Dipelajari
 
 ### Fundamental
+
 - Setup Environment (JDK 25, Maven, Spring Tools)
 - Spring Core (IoC, Dependency Injection, Bean)
 - Spring Boot Basics & Configuration
@@ -14,12 +15,14 @@ Repository ini berisi semua materi dan project yang saya kerjakan selama belajar
 - Logging & Lombok
 
 ### Web Development
+
 - Spring MVC & Thymeleaf
 - REST API Development
 - DTO Pattern & Best Practices
 - HTTP Methods & Status Codes
 
 ### Database
+
 - PostgreSQL Setup
 - Spring Data JPA
 - Entity & Repository Pattern
@@ -29,17 +32,20 @@ Repository ini berisi semua materi dan project yang saya kerjakan selama belajar
 - Query Optimization (FetchType, JPA Projection, Cascade)
 
 ### Advanced Topics
+
 - Bean Validation & Custom Validator
 - Aspect-Oriented Programming (AOP)
 - Exception Handling (@ControllerAdvice)
 - Swagger/OpenAPI Documentation
 
 ### Testing
+
 - Integration Testing dengan RestAssured
 - TestContainers untuk Database Testing
 - Positive & Negative Scenarios
 
 ### Security
+
 - Spring Security Fundamentals
 - Basic Authentication
 - JWT (JSON Web Token)
@@ -65,6 +71,7 @@ Repository ini berisi semua materi dan project yang saya kerjakan selama belajar
 ## 🎯 Hasil Pembelajaran
 
 Setelah menyelesaikan course ini, saya bisa:
+
 - ✅ Bangun REST API yang production-ready
 - ✅ Design database dengan proper relations
 - ✅ Implement JWT authentication
