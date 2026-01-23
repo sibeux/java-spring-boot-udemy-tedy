@@ -8,8 +8,11 @@
         <property name="id" value="1"></property>
         <property name="name" value="John Doe"></property>
     </bean>
+
+    <!-- alternative fully DI from constructor -->
     <bean id="book" class="com.sibeux.domain.Book">
+        <constructor-arg value="The brief history of time"></constructor-arg>
         <constructor-arg ref="author"></constructor-arg>
-        <property name="title" value="Harry Potter"></property>
+        <!-- <property name="title" value="Harry Potter"></property> -->
     </bean>
 </beans>
