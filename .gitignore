@@ -23,9 +23,6 @@ out/
 .classpath
 .factorypath
 
-# --- VS Code ---
-.vscode/
-
 # --- OS & Log files ---
 log/
 *.log
