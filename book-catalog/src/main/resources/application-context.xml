@@ -8,5 +8,8 @@
         <property name="id" value="1"></property>
         <property name="name" value="John Doe"></property>
     </bean>
-    <bean id="bookService" class="com.sibeux.service.BookService" />
+    <bean id="book" class="com.sibeux.domain.Book">
+        <constructor-arg ref="author"></constructor-arg>
+        <property name="title" value="Harry Potter"></property>
+    </bean>
 </beans>
