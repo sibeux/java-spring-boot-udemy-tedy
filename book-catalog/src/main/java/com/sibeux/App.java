@@ -16,12 +16,18 @@ public class App {
         try (ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(
                 "application-context.xml")) {
             Author author = (Author) appContext.getBean("author");
-            System.out.println(author.getId());
-            System.out.println(author.getName());
+            System.out.println("Id: " + author.getId() + " Name: " + author.getName());
+
+            // Multiple bean with same class
+            Author author2 = (Author) appContext.getBean("author2");
+            System.out.println("Id: " + author2.getId() + " Name: " + author2.getName());
 
             Book book = (Book) appContext.getBean("book");
-            System.out.println(book.getTitle());
-            System.out.println(book.getAuthor().getName());
+            System.out.println("Title: " + book.getTitle() + ". Author: " + book.getAuthor().getName());
+
+            // Multiple bean with same class
+            Book book2 = (Book) appContext.getBean("book2");
+            System.out.println("Title: " + book2.getTitle() + ". Author: " + book2.getAuthor().getName());
         } catch (BeansException e) {
             e.printStackTrace();
         }

@@ -9,10 +9,20 @@
         <property name="name" value="John Doe"></property>
     </bean>
 
-    <!-- alternative fully DI from constructor -->
+    <!-- Multiple bean -->
+    <bean id="author2" class="com.sibeux.domain.Author">
+        <property name="id" value="10"></property>
+        <property name="name" value="Albert Einstein"></property>
+    </bean>
+
     <bean id="book" class="com.sibeux.domain.Book">
-        <constructor-arg value="The brief history of time"></constructor-arg>
         <constructor-arg ref="author"></constructor-arg>
-        <!-- <property name="title" value="Harry Potter"></property> -->
+        <property name="title" value="Harry Potter"></property>
+    </bean>
+
+    <!-- alternative fully DI from constructor -->
+    <bean id="book2" class="com.sibeux.domain.Book">
+        <constructor-arg value="The brief history of time"></constructor-arg>
+        <constructor-arg ref="author2"></constructor-arg>
     </bean>
 </beans>
