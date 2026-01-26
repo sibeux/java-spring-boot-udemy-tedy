@@ -25,4 +25,16 @@
         <constructor-arg value="The brief history of time"></constructor-arg>
         <constructor-arg ref="author2"></constructor-arg>
     </bean>
+
+    <bean id="mailService" class="jakarta.mail.Session" factory-method="getInstance">
+        <constructor-arg>
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.host">sandbox.smtp.mailtrap.io</prop>
+                <prop key="mail.smtp.port">2525</prop>
+                <prop key="mail.smtp.ssl.trust">sandbox.smtp.mailtrap.io</prop>
+            </props>
+        </constructor-arg>
+    </bean>
 </beans>
