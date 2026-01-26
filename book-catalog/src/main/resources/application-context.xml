@@ -49,7 +49,11 @@
         <constructor-arg value="94f41de68e4e30"></constructor-arg>
     </bean>
 
-    <bean id="emailService" class="com.sibeux.service.EmailService">
+    <bean id="emailService" class="com.sibeux.service.impl.EmailServiceImpl">
         <constructor-arg ref="mailSession"></constructor-arg>
+    </bean>
+
+    <bean id="authService" class="com.sibeux.service.impl.AuthServiceImpl">
+        <constructor-arg ref="emailService"></constructor-arg>
     </bean>
 </beans>

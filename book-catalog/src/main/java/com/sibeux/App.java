@@ -5,7 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.sibeux.domain.Author;
 import com.sibeux.domain.Book;
-import com.sibeux.service.EmailService;
+import com.sibeux.service.AuthService;
+import com.sibeux.service.impl.EmailServiceImpl;
 
 /**
  * Hello world!
@@ -30,8 +31,11 @@ public class App {
             Book book2 = (Book) appContext.getBean("book2");
             System.out.println("Title: " + book2.getTitle() + ". Author: " + book2.getAuthor().getName());
 
-            EmailService emailService = (EmailService) appContext.getBean("emailService");
-            emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
+            // EmailServiceImpl emailService = (EmailServiceImpl) appContext.getBean("emailService");
+            // emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
+
+            AuthService authService = (AuthService) appContext.getBean("authService");
+            authService.login("test@gmail.com");
         } catch (BeansException e) {
             e.printStackTrace();
         }
