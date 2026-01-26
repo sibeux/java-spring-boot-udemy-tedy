@@ -1,7 +1,7 @@
 package com.sibeux.domain;
 
 public class Author {
-    private Long id;;
+    private Long id;
     private String name;
 
     public Long getId() {
