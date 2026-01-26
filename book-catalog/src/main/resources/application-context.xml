@@ -26,7 +26,7 @@
         <constructor-arg ref="author2"></constructor-arg>
     </bean>
 
-    <bean id="mailService" class="jakarta.mail.Session" factory-method="getInstance">
+    <bean id="mailSession" class="jakarta.mail.Session" factory-method="getInstance">
         <constructor-arg>
             <props>
                 <prop key="mail.smtp.auth">true</prop>
@@ -36,5 +36,20 @@
                 <prop key="mail.smtp.ssl.trust">sandbox.smtp.mailtrap.io</prop>
             </props>
         </constructor-arg>
+
+        <constructor-arg>
+            <bean class="jakarta.mail.Authenticator">
+                <lookup-method name="getPasswordAuthentication" />
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <bean id="passwordAuthentication" class="jakarta.mail.PasswordAuthentication">
+        <constructor-arg value="0074f8da91b4d9"></constructor-arg>
+        <constructor-arg value="94f41de68e4e30"></constructor-arg>
+    </bean>
+
+    <bean id="emailService" class="com.sibeux.service.EmailService">
+        <constructor-arg ref="mailSession"></constructor-arg>
     </bean>
 </beans>

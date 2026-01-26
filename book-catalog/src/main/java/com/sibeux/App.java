@@ -5,13 +5,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.sibeux.domain.Author;
 import com.sibeux.domain.Book;
+import com.sibeux.service.EmailService;
 
 /**
  * Hello world!
  *
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("Hello World!");
         try (ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(
                 "application-context.xml")) {
@@ -28,6 +29,9 @@ public class App {
             // Multiple bean with same class
             Book book2 = (Book) appContext.getBean("book2");
             System.out.println("Title: " + book2.getTitle() + ". Author: " + book2.getAuthor().getName());
+
+            EmailService emailService = (EmailService) appContext.getBean("emailService");
+            emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
         } catch (BeansException e) {
             e.printStackTrace();
         }
