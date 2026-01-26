@@ -53,7 +53,10 @@
         <constructor-arg ref="mailSession"></constructor-arg>
     </bean>
 
+    <bean id="emailDummyService" class="com.sibeux.service.impl.EmailDummyServiceImpl"></bean>
+
     <bean id="authService" class="com.sibeux.service.impl.AuthServiceImpl">
-        <constructor-arg ref="emailService"></constructor-arg>
+        <!-- <constructor-arg ref="emailService"></constructor-arg> -->
+        <constructor-arg ref="emailDummyService"></constructor-arg>
     </bean>
 </beans>
