@@ -8,6 +8,7 @@ import com.sibeux.config.AppConfig;
 import com.sibeux.domain.Author;
 import com.sibeux.domain.Book;
 import com.sibeux.service.AuthService;
+import com.sibeux.service.EmailService;
 import com.sibeux.service.impl.EmailServiceImpl;
 
 /**
@@ -57,6 +58,10 @@ public class App {
             // Book 2
             Book book2 = (Book) appContext.getBean("book2");
             System.out.println("Title: " + book2.getTitle() + ". Author: " + book2.getAuthor().getName());
+
+            // Email Service
+            EmailService emailService = (EmailService) appContext.getBean("emailService");
+            emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
         } catch (BeansException e) {
             e.printStackTrace();
         }
