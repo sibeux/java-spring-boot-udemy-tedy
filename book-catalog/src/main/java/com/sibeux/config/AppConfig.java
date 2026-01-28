@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.sibeux.domain.Author;
@@ -18,6 +19,7 @@ import jakarta.mail.Authenticator;
 import jakarta.mail.PasswordAuthentication;
 import jakarta.mail.Session;
 
+@ComponentScan(basePackages = { "com.sibeux" })
 @Configuration
 public class AppConfig {
 
@@ -82,20 +84,22 @@ public class AppConfig {
         });
     }
 
-    @Bean
-    public EmailService emailService(Session mailSession) {
-        return new EmailServiceImpl(mailSession);
-    }
+    // *** Ini tidak dipakai jika memakaiannotation based configuration ***
+    // @Bean
+    // public EmailService emailService(Session mailSession) {
+    // return new EmailServiceImpl(mailSession);
+    // }
 
-    @Bean
-    public EmailService emailDummEmailService() {
-        return new EmailDummyServiceImpl();
-    }
+    // @Bean
+    // public EmailService emailDummEmailService() {
+    // return new EmailDummyServiceImpl();
+    // }
 
-    @Bean
-    // Mengapa perlu @Qualifier? Karena ada 2 bean dengan class EmailService.
-    // Satu adalah emailService dan satu lagi adalah emailDummEmailService.
-    public AuthService authService(@Qualifier("emailDummEmailService") EmailService emailService) {
-        return new AuthServiceImpl(emailService);
-    }
+    // @Bean
+    // // Mengapa perlu @Qualifier? Karena ada 2 bean dengan class EmailService.
+    // // Satu adalah emailService dan satu lagi adalah emailDummEmailService.
+    // public AuthService authService(@Qualifier("emailDummEmailService")
+    // EmailService emailService) {
+    // return new AuthServiceImpl(emailService);
+    // }
 }

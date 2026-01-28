@@ -39,8 +39,8 @@ public class App {
             // appContext.getBean("emailService");
             // emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
 
-            // AuthService authService = (AuthService) appContext.getBean("authService");
-            // authService.login("test@gmail.com");
+            AuthService authService = (AuthService) appContext.getBean("authService");
+            authService.login("test@gmail.com");
         } catch (BeansException e) {
             e.printStackTrace();
         }
@@ -60,11 +60,22 @@ public class App {
             System.out.println("Title: " + book2.getTitle() + ". Author: " + book2.getAuthor().getName());
 
             // Email Service
-            EmailService emailService = (EmailService) appContext.getBean("emailService");
+            // EmailService emailService = (EmailService)
+            // appContext.getBean("emailService");
             // emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
 
             // Auth Service
-            AuthService authService = (AuthService) appContext.getBean("authService");
+            // Java based configuration
+            // AuthService authService = (AuthService) appContext.getBean("authService");
+            // authService.login("test@jujutsu.com");
+
+        } catch (BeansException e) {
+            e.printStackTrace();
+        }
+
+        // Annotation based configuration
+        try (AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class)) {
+            AuthService authService = (AuthService) appContext.getBean("authServiceImpl");
             authService.login("test@jujutsu.com");
         } catch (BeansException e) {
             e.printStackTrace();

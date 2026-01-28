@@ -1,5 +1,8 @@
 package com.sibeux.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.sibeux.service.EmailService;
 
 import jakarta.mail.Message;
@@ -11,14 +14,22 @@ import jakarta.mail.internet.MimeBodyPart;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.mail.internet.MimeMultipart;
 
+@Service
 public class EmailServiceImpl implements EmailService {
 
-    private final Session session;
+    // @Autowired
+    private Session session;
 
+    // @Autowired
     public EmailServiceImpl(Session session) {
         super();
         this.session = session;
     }
+
+    // @Autowired
+    // public void setSession(Session session) {
+    // this.session = session;
+    // }
 
     @Override
     public void sendMail(String destinationAddress, String mailSubject, String messageContent) throws Exception {
