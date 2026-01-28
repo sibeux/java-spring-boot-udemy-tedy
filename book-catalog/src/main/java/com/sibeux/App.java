@@ -8,8 +8,6 @@ import com.sibeux.config.AppConfig;
 import com.sibeux.domain.Author;
 import com.sibeux.domain.Book;
 import com.sibeux.service.AuthService;
-import com.sibeux.service.EmailService;
-import com.sibeux.service.impl.EmailServiceImpl;
 
 /**
  * Hello world!

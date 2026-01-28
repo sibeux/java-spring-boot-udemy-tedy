@@ -9,11 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 import com.sibeux.domain.Author;
 import com.sibeux.domain.Book;
-import com.sibeux.service.AuthService;
-import com.sibeux.service.EmailService;
-import com.sibeux.service.impl.AuthServiceImpl;
-import com.sibeux.service.impl.EmailDummyServiceImpl;
-import com.sibeux.service.impl.EmailServiceImpl;
 
 import jakarta.mail.Authenticator;
 import jakarta.mail.PasswordAuthentication;
