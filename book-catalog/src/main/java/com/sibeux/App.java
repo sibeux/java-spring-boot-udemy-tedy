@@ -1,8 +1,10 @@
 package com.sibeux;
 
 import org.springframework.beans.BeansException;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.sibeux.config.AppConfig;
 import com.sibeux.domain.Author;
 import com.sibeux.domain.Book;
 import com.sibeux.service.AuthService;
@@ -15,6 +17,7 @@ import com.sibeux.service.impl.EmailServiceImpl;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello World!");
+        // XML based configuration
         try (ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(
                 "application-context.xml")) {
             Author author = (Author) appContext.getBean("author");
@@ -31,11 +34,19 @@ public class App {
             Book book2 = (Book) appContext.getBean("book2");
             System.out.println("Title: " + book2.getTitle() + ". Author: " + book2.getAuthor().getName());
 
-            EmailServiceImpl emailService = (EmailServiceImpl) appContext.getBean("emailService");
-            emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
+            // EmailServiceImpl emailService = (EmailServiceImpl) appContext.getBean("emailService");
+            // emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
 
-            AuthService authService = (AuthService) appContext.getBean("authService");
-            authService.login("test@gmail.com");
+            // AuthService authService = (AuthService) appContext.getBean("authService");
+            // authService.login("test@gmail.com");
+        } catch (BeansException e) {
+            e.printStackTrace();
+        }
+
+        // Java based configuration
+        try (AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class)) {
+            Author author = (Author) appContext.getBean("author1");
+            System.out.println("Id: " + author.getId() + " Name: " + author.getName());
         } catch (BeansException e) {
             e.printStackTrace();
         }
