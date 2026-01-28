@@ -46,11 +46,17 @@ public class App {
 
         // Java based configuration
         try (AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class)) {
+            // Author 1
             Author author = (Author) appContext.getBean("author1");
             System.out.println("Id: " + author.getId() + " Name: " + author.getName());
 
+            // Book 1
             Book book = (Book) appContext.getBean("book1");
             System.out.println("Title: " + book.getTitle() + ". Author: " + book.getAuthor().getName());
+
+            // Book 2
+            Book book2 = (Book) appContext.getBean("book2");
+            System.out.println("Title: " + book2.getTitle() + ". Author: " + book2.getAuthor().getName());
         } catch (BeansException e) {
             e.printStackTrace();
         }
