@@ -34,7 +34,8 @@ public class App {
             Book book2 = (Book) appContext.getBean("book2");
             System.out.println("Title: " + book2.getTitle() + ". Author: " + book2.getAuthor().getName());
 
-            // EmailServiceImpl emailService = (EmailServiceImpl) appContext.getBean("emailService");
+            // EmailServiceImpl emailService = (EmailServiceImpl)
+            // appContext.getBean("emailService");
             // emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
 
             // AuthService authService = (AuthService) appContext.getBean("authService");
@@ -47,6 +48,9 @@ public class App {
         try (AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class)) {
             Author author = (Author) appContext.getBean("author1");
             System.out.println("Id: " + author.getId() + " Name: " + author.getName());
+
+            Book book = (Book) appContext.getBean("book1");
+            System.out.println("Title: " + book.getTitle() + ". Author: " + book.getAuthor().getName());
         } catch (BeansException e) {
             e.printStackTrace();
         }
