@@ -8,7 +8,10 @@ import org.springframework.context.annotation.Configuration;
 
 import com.sibeux.domain.Author;
 import com.sibeux.domain.Book;
+import com.sibeux.service.AuthService;
 import com.sibeux.service.EmailService;
+import com.sibeux.service.impl.AuthServiceImpl;
+import com.sibeux.service.impl.EmailDummyServiceImpl;
 import com.sibeux.service.impl.EmailServiceImpl;
 
 import jakarta.mail.Authenticator;
@@ -82,5 +85,17 @@ public class AppConfig {
     @Bean
     public EmailService emailService(Session mailSession) {
         return new EmailServiceImpl(mailSession);
+    }
+
+    @Bean
+    public EmailService emailDummEmailService() {
+        return new EmailDummyServiceImpl();
+    }
+
+    @Bean
+    // Mengapa perlu @Qualifier? Karena ada 2 bean dengan class EmailService.
+    // Satu adalah emailService dan satu lagi adalah emailDummEmailService.
+    public AuthService authService(@Qualifier("emailDummEmailService") EmailService emailService) {
+        return new AuthServiceImpl(emailService);
     }
 }

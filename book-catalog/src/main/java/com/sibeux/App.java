@@ -61,7 +61,11 @@ public class App {
 
             // Email Service
             EmailService emailService = (EmailService) appContext.getBean("emailService");
-            emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
+            // emailService.sendMail("test@gmail.com", "Your OTP", "Your OTP is 123456");
+
+            // Auth Service
+            AuthService authService = (AuthService) appContext.getBean("authService");
+            authService.login("test@jujutsu.com");
         } catch (BeansException e) {
             e.printStackTrace();
         }
